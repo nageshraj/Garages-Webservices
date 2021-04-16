@@ -2,6 +2,7 @@ package com.wolken.wolkenapp.dao;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,6 +14,8 @@ import com.wolken.wolkenapp.dto.GarageDTO;
 
 @Component
 public class GarageDAOImpl implements GarageDAO {
+
+	Logger logger = Logger.getLogger("GarageDAOImpl");
 
 	// LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 //	BasicDataSource basicDataSource = new BasicDataSource();
@@ -42,6 +45,8 @@ public class GarageDAOImpl implements GarageDAO {
 	@Override
 	public String add(GarageDTO garageDTO) {
 
+		logger.info("INSIDE ADD()");
+
 //		Configuration configuration = new Configuration();
 //
 //		configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
@@ -68,6 +73,8 @@ public class GarageDAOImpl implements GarageDAO {
 	public List<GarageDTO> getAll() {
 		// TODO Auto-generated method stub
 
+		logger.info("INSIDE getAll()");
+
 		SessionFactory factory = configuration.buildSessionFactory();
 
 		Session session = factory.openSession();
@@ -86,6 +93,8 @@ public class GarageDAOImpl implements GarageDAO {
 	@Override
 	public String updatePricebyName(double newPrice, String nameToBeUpdated) {
 		// TODO Auto-generated method stub
+
+		logger.info("INSIDE updatePricebyName()");
 
 		SessionFactory factory = configuration.buildSessionFactory();
 
@@ -107,6 +116,8 @@ public class GarageDAOImpl implements GarageDAO {
 	@Override
 	public String deleteByName(String nameToBeDeleted) {
 		// TODO Auto-generated method stub
+
+		logger.info("INSIDE deleteByName()");
 
 		SessionFactory factory = configuration.buildSessionFactory();
 
