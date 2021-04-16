@@ -1,5 +1,7 @@
 package com.wolken.wolkenapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +20,8 @@ public class GarageController {
 	GarageService garageService;
 
 	@GetMapping("/getAll")
-	public GarageDTO getAll() {
-		return null;
+	public List<GarageDTO> getAll() {
+		return garageService.validateAndGetAll();
 	}
 
 	@PostMapping("/save")
@@ -29,12 +31,12 @@ public class GarageController {
 
 	@PutMapping("/update")
 	public String update(@RequestBody GarageDTO garageDTO) {
-		return "Updation done";
+		return garageService.validateAndUpdatePriceByName(garageDTO.getPrice(), garageDTO.getName());
 	}
 
 	@DeleteMapping("/delete")
 	public String del(@RequestBody GarageDTO garageDTO) {
-		return "Deletion done";
+		return garageService.validateAndDeleteByName(garageDTO.getName());
 	}
 
 }

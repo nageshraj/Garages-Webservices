@@ -27,19 +27,20 @@ public class GarageServiceImpl implements GarageService {
 	@Override
 	public List<GarageDTO> validateAndGetAll() {
 		// TODO Auto-generated method stub
-		return null;
+
+		return garageDAO.getAll();
 	}
 
 	@Override
 	public String validateAndUpdatePriceByName(double newPrice, String nameToBeUpdated) {
 		// TODO Auto-generated method stub
-		return null;
+		return garageDAO.updatePricebyName(newPrice, nameToBeUpdated);
 	}
 
 	@Override
 	public String validateAndDeleteByName(String nameToBeDeleted) {
 		// TODO Auto-generated method stub
-		return null;
+		return garageDAO.deleteByName(nameToBeDeleted);
 	}
 
 }
